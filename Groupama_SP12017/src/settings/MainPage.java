@@ -38,7 +38,7 @@ public class MainPage {
         if(driver == null) {
             System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chromedriver.exe");
             driver = new ChromeDriver();
-            driver.get("http://msrvaq10vm.technomedia.ca/sigal_60/2017sp1/sp_groupama/");
+            driver.get("");
             System.out.println("Opening Google Chrome");
         }
         return driver;
