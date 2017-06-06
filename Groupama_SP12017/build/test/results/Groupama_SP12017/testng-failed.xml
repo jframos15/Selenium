@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Groupama_SP12017]">
+  <test name="testcases.LogIn(failed)">
+    <classes>
+      <class name="testcases.LogIn">
+        <methods>
+          <include name="testChangeUser"/>
+        </methods>
+      </class> <!-- testcases.LogIn -->
+    </classes>
+  </test> <!-- testcases.LogIn(failed) -->
+</suite> <!-- Failed suite [Groupama_SP12017] -->

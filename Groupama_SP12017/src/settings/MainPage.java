@@ -17,21 +17,29 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class MainPage {
     @FindBy(id = "fldUserName") 
     WebElement userName;
+    
     @FindBy(id = "fldPassword") 
     WebElement password;
+    
     @FindBy(id = "btnLogin")
     WebElement btnLogIn;
+    
     @FindBy(id = "headerMenuIcon")
     WebElement hamburgerMenu;
+    
     @FindBy(xpath = "//*[@id=\"linkmenu-91874\"]/ul/li[1]/form/div/input")
     WebElement inputUser;
+    
     @FindBy(xpath = "//*[@id=\"linkmenu-91874\"]/ul/li[1]/form/div/a")
     WebElement inputSubmit;
+    
     @FindBy(xpath = "//*[@id=\"profile-header-dropdown\"]/span[1]/span[3]")
     WebElement userType;
-    @FindBy(css = "#linkmenu-92261")
+    
+    @FindBy(id = "linkmenu-92261")
     WebElement menuEntretiens;
-    @FindBy(css = "#linkmenu-92269")
+    
+    @FindBy(id = "linkmenu-92269")
     WebElement subMenuEntretiensMesCollabs;
 	
     public static WebDriver openChromeDriver(WebDriver driver) {
@@ -57,39 +65,30 @@ public class MainPage {
         hamburgerMenu.click();
         driver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
         inputUser.sendKeys(userName);
-        inputSubmit.click();
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        inputSubmit.click(); 
         
-        driver.switchTo().frame(0);
+        driver.findElement(By.xpath("//*[@class='loadMore results']/div[1]/a[1]")).click();
+        driver.findElement(By.xpath("//*[@class=\"row\"]/div[2]/div[2]/div[2]/div/a[1]")).click(); 	
         
-        /*use reg exp
-        String sch_userModal = "searchpopupSCH_USER_";
-        Pattern p = Pattern.compile("[a-zA-Z]{14}\\p{Punct}[A-Z]{4}\\p{Punct}\\d{13}");
-        Matcher m;*/
-        
-        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@id=\"SCH_USER_1496362181527_loadMore\"]/div[1]/a[1]"))));
-        //select first user child of the list
-        //driver.findElement(By.xpath("//*[@id=\"SCH_USER_1496362181527_loadMore\"]/div[1]/a[1]")).click();
-        List<WebElement> links = driver.findElements(By.tagName("a"));        
-        System.out.println(links.size());
-        
-        for(int i = 0; i < links.size(); i++) {
-            System.out.println(links.get(i).getText());
-        }       
-        driver.findElement(By.cssSelector("#SCH_USER_1496260363650 > div.col-md-3.employee-datas > div.data > div.menu > div > a.list-group-item.subsubmenu.connect")).click();
-        wait.until(ExpectedConditions.visibilityOf(hamburgerMenu));		
+        WebDriverWait wait = new WebDriverWait(driver, 10);   
+        wait.until(ExpectedConditions.visibilityOf(hamburgerMenu));
     }
 
-    public void entretienCollab() {
-        if(checkManagerUserType()) {
+    public void entretienCollab(WebDriver driver) {
+        System.out.println("I am there");
+        System.out.println(checkManagerUserType());
+        WebDriverWait wait = new WebDriverWait(driver, 10);  
+        wait.until(ExpectedConditions.visibilityOf(hamburgerMenu));
+        
+        if(checkManagerUserType()) {    
             hamburgerMenu.click();
             menuEntretiens.click();
             subMenuEntretiensMesCollabs.click();					
         }
     }
 
-    private Boolean checkManagerUserType() {
-        if(!userType.equals("Manager")) {
+    private Boolean checkManagerUserType() {       
+        if(userType.getText().matches("Manager")) {
             return false;
         } else {
             return true;

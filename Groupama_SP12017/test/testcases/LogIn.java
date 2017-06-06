@@ -18,7 +18,7 @@ public class LogIn {
 	@Test(priority = 1)
 	public void testChangeUser() {
 		login.changeUser(driver, 10, "Jean-Paul Grangeon"); 
-		login.entretienCollab();
+		login.entretienCollab(driver);
 		
 	}
 }
