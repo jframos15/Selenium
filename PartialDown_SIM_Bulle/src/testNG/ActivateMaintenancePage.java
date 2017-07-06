@@ -24,6 +24,7 @@ public class ActivateMaintenancePage {
 		return urlList;		
 	}
 	
+	//////*******Commentaire test*********///////
 	@Test(priority=0, enabled=true, description="activate all partial down")
 	@Parameters({ "simUser", "simPassword" })
 	public void  activate(String simUser, String simPassword) {
