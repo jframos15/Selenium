@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="221164" started-at="2017-07-04T17:55:10Z" finished-at="2017-07-04T17:58:51Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="221164" started-at="2017-07-04T17:55:10Z" finished-at="2017-07-04T17:58:51Z">
+      <class name="testNG.DesActivateMaintenancePage">
+        <test-method status="PASS" signature="desActivate(java.lang.String, java.lang.String)[pri:0, instance:testNG.DesActivateMaintenancePage@864e92]" name="desActivate" duration-ms="221151" started-at="2017-07-04T13:55:10Z" description="desactivate all partial down" finished-at="2017-07-04T13:58:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[dyan]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Girkey89]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- desActivate -->
+      </class> <!-- testNG.DesActivateMaintenancePage -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
